@@ -1,0 +1,35 @@
+# ============================================================
+# .gitignore — Equipo Delfos
+# Cada línea es un patrón de archivos que Git debe IGNORAR:
+# no los sube a GitHub aunque estén en la carpeta.
+# Las líneas que empiezan con # son comentarios (Git las saltea).
+# ============================================================
+
+# --- Instaladores y ejecutables ---
+# Programas pesados que no son parte del sitio web.
+*.exe
+*.msi
+*.dmg
+*.zip
+
+# El asterisco (*) significa "cualquier nombre".
+# Entonces *.exe = "cualquier archivo terminado en .exe".
+
+# --- Archivos del sistema operativo ---
+# Windows y Mac dejan estos archivitos ocultos en las carpetas.
+# No aportan nada al sitio, así que los ignoramos.
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# --- Notas y borradores personales ---
+# Si querés tener apuntes tuyos en la carpeta sin subirlos,
+# guardalos en una subcarpeta llamada "borradores".
+borradores/
+
+# --- Claves y secretos (MUY IMPORTANTE para más adelante) ---
+# Cuando lleguemos a la API de Claude, la clave secreta NUNCA
+# debe subirse a GitHub. Este patrón la protege de antemano.
+.env
+*.key
+secretos.txt
