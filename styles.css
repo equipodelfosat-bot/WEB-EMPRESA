@@ -362,3 +362,83 @@ blockquote cite {
     justify-content: flex-start;
     margin-bottom: 2.5rem;
 }
+
+/* ==========================================================
+   AGREGADOS DE LA ETAPA 4 — formulario de contacto
+   ========================================================== */
+
+.formulario {
+    background-color: var(--blanco);
+    border-radius: 8px;
+    padding: 2rem;
+    margin: 2rem 0 3rem;
+    box-shadow: 0 2px 12px rgba(22, 70, 91, 0.08);
+}
+
+/* Cada bloque etiqueta + cajita */
+.campo {
+    margin-bottom: 1.3rem;
+}
+
+/* display:block hace que la etiqueta ocupe su propia línea,
+   quedando ARRIBA de la cajita en vez de al costado. */
+.campo label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--azul-profundo);
+}
+
+.opcional {
+    font-weight: 400;
+    color: #7A8B92;
+    font-size: 0.9rem;
+}
+
+/* Una sola regla para los tres tipos de cajita.
+   Las comas separan selectores: "aplicá esto a todos ellos". */
+.formulario input,
+.formulario select,
+.formulario textarea {
+    width: 100%;                     /* ocupan todo el ancho disponible */
+    padding: 0.7rem 0.9rem;
+    border: 1px solid #C8D8DD;
+    border-radius: 6px;
+    font-family: inherit;            /* heredan la tipografía del body:
+                                        sin esto usarían la fea del navegador */
+    font-size: 1rem;
+    color: var(--texto);
+    background-color: var(--blanco);
+}
+
+/* :focus = cuando el campo está seleccionado (el cursor adentro).
+   Marcarlo es clave para quien navega con teclado. */
+.formulario input:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+    outline: none;                                  /* saca el borde por defecto */
+    border-color: var(--aguamarina);                /* y lo reemplaza por el nuestro */
+    box-shadow: 0 0 0 3px rgba(91, 168, 181, 0.25); /* halo suave */
+}
+
+/* resize:vertical = el usuario puede agrandar la caja de texto
+   solo hacia abajo, no a lo ancho (evita romper el diseño). */
+.formulario textarea {
+    resize: vertical;
+}
+
+/* El botón de envío es un <button>, no un <a>:
+   necesita algunos ajustes que los enlaces no requieren. */
+.formulario button {
+    border: none;
+    cursor: pointer;        /* muestra la manito al pasar el mouse */
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.nota-privacidad {
+    font-size: 0.88rem;
+    color: #7A8B92;
+    margin-top: 1.2rem;
+    margin-bottom: 0;
+}

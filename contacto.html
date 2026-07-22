@@ -37,22 +37,99 @@
             <p>
                 Si sos parte del equipo tratante de un paciente, o familiar de una
                 persona que podría beneficiarse del acompañamiento terapéutico,
-                escribinos por cualquiera de estas vías. Te respondemos a la brevedad
-                para conversar sobre el caso.
+                completá el formulario y te respondemos a la brevedad.
             </p>
 
-            <!-- NOTA PARA EL FUTURO: acá irá el formulario de contacto
-                 propio (Etapa 4), que enviará las consultas por mail. -->
-            <div class="contacto-acciones acciones-izquierda">
-                <a href="mailto:contacto@equipodelfos.com.ar" class="boton boton-principal">Enviar un correo</a>
-                <a href="https://wa.me/5491100000000" class="boton boton-secundario">Escribir por WhatsApp</a>
-            </div>
+            <!-- ============================================================
+                 EL FORMULARIO
+                 <form> es la etiqueta que agrupa campos para enviar datos.
+                 Dos atributos definen a dónde y cómo viajan:
+                   action = la dirección que RECIBE los datos (tu Formspree)
+                   method = "POST" significa "enviar datos privados"
+                            (a diferencia de GET, que los muestra en la URL)
+                 IMPORTANTE: reemplazá TU_CODIGO por el que te dio Formspree.
+                 ============================================================ -->
+            <form class="formulario" action="https://formspree.io/f/mjgnozql" method="POST">
 
-            <h2>Información de contacto</h2>
+                <!-- Cada campo es una dupla: <label> (la etiqueta visible)
+                     + <input> (la cajita donde se escribe).
+                     El "for" del label y el "id" del input deben COINCIDIR:
+                     así, al hacer clic en el texto, se activa la cajita.
+                     Bueno para usabilidad y esencial para accesibilidad. -->
+                <div class="campo">
+                    <label for="nombre">Nombre y apellido</label>
+                    <!-- name="nombre" es el nombre que tendrá el dato al llegarte
+                         por mail. type="text" = texto libre.
+                         required = el navegador no deja enviar si está vacío. -->
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+
+                <div class="campo">
+                    <label for="email">Correo electrónico</label>
+                    <!-- type="email" hace que el navegador valide el formato
+                         y que en celulares aparezca el teclado con la @ -->
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="campo">
+                    <label for="telefono">Teléfono <span class="opcional">(opcional)</span></label>
+                    <!-- type="tel" muestra el teclado numérico en celulares.
+                         Sin "required": este campo puede quedar vacío. -->
+                    <input type="tel" id="telefono" name="telefono">
+                </div>
+
+                <div class="campo">
+                    <label for="rol">¿Desde dónde nos escribís?</label>
+                    <!-- <select> = lista desplegable. Cada <option> es una opción.
+                         Saber esto de entrada te ahorra tiempo al responder. -->
+                    <select id="rol" name="rol" required>
+                        <option value="">Elegí una opción</option>
+                        <option value="familiar">Soy familiar del paciente</option>
+                        <option value="equipo-tratante">Formo parte del equipo tratante</option>
+                        <option value="institucion">Represento a una institución u obra social</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="zona">Zona donde se necesita el acompañamiento</label>
+                    <!-- placeholder = texto gris de ejemplo que desaparece al escribir.
+                         OJO: no reemplaza al label, solo lo complementa. -->
+                    <input type="text" id="zona" name="zona" placeholder="Ej.: Vicente López, CABA" required>
+                </div>
+
+                <div class="campo">
+                    <label for="mensaje">Contanos brevemente sobre el caso</label>
+                    <!-- <textarea> = caja de texto de varias líneas.
+                         rows="5" define su alto inicial.
+                         Ojo: NO se cierra solo como <input>, necesita </textarea> -->
+                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                </div>
+
+                <!-- Campo trampa "anti-spam" (honeypot = tarro de miel):
+                     está oculto para las personas, pero los robots que llenan
+                     formularios automáticamente lo completan. Si viene lleno,
+                     Formspree descarta el mensaje. Truco clásico y efectivo. -->
+                <input type="text" name="_gotcha" style="display:none">
+
+                <!-- El botón que dispara el envío.
+                     type="submit" es lo que lo convierte en botón de envío. -->
+                <button type="submit" class="boton boton-principal">Enviar consulta</button>
+
+                <p class="nota-privacidad">
+                    Tus datos se usan únicamente para responder esta consulta.
+                    No los compartimos con terceros.
+                </p>
+            </form>
+
+            <h2>Otras vías de contacto</h2>
             <p>
                 Correo: contacto@equipodelfos.com.ar<br>
                 Zona de trabajo: Ciudad de Buenos Aires y Gran Buenos Aires
             </p>
+            <div class="contacto-acciones acciones-izquierda">
+                <a href="https://wa.me/5491100000000" class="boton boton-secundario">Escribir por WhatsApp</a>
+            </div>
         </div>
     </section>
 
