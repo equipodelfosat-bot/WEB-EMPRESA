@@ -1,0 +1,364 @@
+/* ==========================================================
+   HOJA DE ESTILOS — EQUIPO DELFOS
+   Un archivo CSS es una lista de reglas:
+   selector { propiedad: valor; }
+   "A quién le aplico esto { qué le cambio: cómo lo dejo }"
+   ========================================================== */
+
+/* ---------- VARIABLES: la paleta en un solo lugar ----------
+   Definimos los colores una vez con nombre propio.
+   Si mañana cambia la identidad, se modifica SOLO acá.        */
+:root {
+    --azul-profundo: #16465B;   /* color principal: mar profundo */
+    --aguamarina:    #5BA8B5;   /* acentos suaves */
+    --ambar:         #DA9A3C;   /* botones de acción: calidez */
+    --fondo:         #F7FAFB;   /* fondo general, blanco azulado */
+    --fondo-suave:   #E9F2F4;   /* fondo de secciones destacadas */
+    --texto:         #22333B;   /* gris azulado oscuro, mejor que negro puro */
+    --blanco:        #FFFFFF;
+}
+
+/* ---------- RESETEO BÁSICO ----------
+   Los navegadores traen márgenes por defecto distintos entre sí.
+   Los eliminamos para tener control total.                    */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* el ancho incluye bordes y relleno: más predecible */
+}
+
+/* Que los saltos del menú (#seccion) se deslicen suavemente */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ---------- ESTILOS GENERALES DEL CUERPO ---------- */
+body {
+    font-family: 'Source Sans 3', Arial, sans-serif; /* si no carga la primera, usa la siguiente */
+    color: var(--texto);            /* var(...) usa una variable definida arriba */
+    background-color: var(--fondo);
+    line-height: 1.7;               /* separación entre líneas: clave para lectura cómoda */
+    font-size: 1.05rem;
+}
+
+/* Títulos: la tipografía serif les da el tono institucional cálido */
+h1, h2, h3 {
+    font-family: 'Lora', Georgia, serif;
+    color: var(--azul-profundo);
+    line-height: 1.25;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* ---------- EL CONTENEDOR: truco de maquetación esencial ----------
+   Limita el ancho del contenido y lo centra.
+   Sin esto, en un monitor grande el texto se estira de borde a borde. */
+.contenedor {
+    max-width: 1080px;
+    margin: 0 auto;      /* "auto" a los costados = centrado horizontal */
+    padding: 0 1.5rem;   /* aire a los costados en pantallas chicas */
+}
+
+/* Para bloques de lectura larga: más angosto todavía.
+   Las líneas de texto muy anchas cansan la vista. */
+.contenedor-angosto {
+    max-width: 760px;
+}
+
+/* ---------- ENCABEZADO ---------- */
+.encabezado {
+    background-color: var(--blanco);
+    border-bottom: 1px solid var(--fondo-suave);
+    position: sticky;   /* el menú queda "pegado" arriba al hacer scroll */
+    top: 0;
+}
+
+.encabezado-interior {
+    display: flex;                   /* flex: pone los hijos en fila */
+    justify-content: space-between;  /* logo a la izquierda, menú a la derecha */
+    align-items: center;             /* centrados verticalmente */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    flex-wrap: wrap;                 /* en celulares, el menú baja de línea */
+    gap: 0.8rem;
+}
+
+.logo {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.4rem;
+    color: var(--azul-profundo);
+    text-decoration: none;  /* saca el subrayado de los enlaces */
+}
+
+.menu {
+    display: flex;
+    gap: 1.6rem;         /* espacio entre los enlaces del menú */
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--texto);
+    font-weight: 600;
+}
+
+/* :hover = cuando el mouse pasa por encima */
+.menu a:hover {
+    color: var(--aguamarina);
+}
+
+/* ---------- HERO ---------- */
+.hero {
+    background: linear-gradient(170deg, var(--azul-profundo) 0%, #0E3241 100%);
+    color: var(--blanco);
+    padding: 6rem 0 5.5rem;
+    text-align: center;
+}
+
+/* El "eyebrow": etiqueta pequeña arriba del título */
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.18em;   /* separación entre letras */
+    font-size: 0.85rem;
+    color: var(--aguamarina);
+    margin-bottom: 1rem;
+}
+
+.hero h1 {
+    color: var(--blanco);
+    font-size: 2.8rem;
+    margin-bottom: 1.4rem;
+}
+
+.hero-texto {
+    max-width: 640px;
+    margin: 0 auto 2.2rem;   /* centrado + espacio abajo */
+    color: #D7E6EB;          /* blanco levemente azulado, más suave que el puro */
+}
+
+/* ---------- BOTONES ---------- */
+.boton {
+    display: inline-block;
+    padding: 0.85rem 1.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.15s ease, background-color 0.15s ease; /* animación suave */
+}
+
+.boton-principal {
+    background-color: var(--ambar);
+    color: var(--blanco);
+}
+
+.boton-principal:hover {
+    background-color: #C4882F;
+    transform: translateY(-2px);  /* se eleva 2 píxeles al pasar el mouse */
+}
+
+.boton-secundario {
+    border: 2px solid var(--aguamarina);
+    color: var(--azul-profundo);
+}
+
+.boton-secundario:hover {
+    background-color: var(--fondo-suave);
+}
+
+.boton-menu {
+    background-color: var(--azul-profundo);
+    color: var(--blanco);
+    padding: 0.55rem 1.2rem;
+}
+
+.boton-menu:hover {
+    background-color: var(--aguamarina);
+    color: var(--blanco);
+}
+
+/* ---------- SECCIONES ---------- */
+.seccion {
+    padding: 4.5rem 0;   /* aire arriba y abajo de cada bloque */
+}
+
+/* Fondo alternado para dar ritmo visual al scroll */
+.seccion-destacada {
+    background-color: var(--fondo-suave);
+}
+
+/* ---------- PILARES (las tres tarjetas) ---------- */
+.pilares {
+    display: grid;                                   /* grid: organiza en cuadrícula */
+    grid-template-columns: repeat(3, 1fr);           /* 3 columnas iguales */
+    gap: 1.4rem;
+    margin-top: 2.5rem;
+}
+
+.pilar {
+    background-color: var(--blanco);
+    border-top: 4px solid var(--aguamarina);  /* detalle de identidad */
+    border-radius: 8px;
+    padding: 1.6rem;
+    box-shadow: 0 2px 10px rgba(22, 70, 91, 0.07);  /* sombra sutil */
+}
+
+.pilar h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.15rem;
+}
+
+.pilar p {
+    margin-bottom: 0;
+    font-size: 0.98rem;
+}
+
+/* ---------- CITA DE LA LEY ---------- */
+blockquote {
+    border-left: 4px solid var(--ambar);
+    background-color: var(--fondo-suave);
+    padding: 1.4rem 1.8rem;
+    margin: 1.8rem 0;
+    font-style: italic;
+    border-radius: 0 8px 8px 0;
+}
+
+blockquote cite {
+    display: block;        /* lo baja a su propia línea */
+    margin-top: 0.8rem;
+    font-style: normal;
+    font-size: 0.9rem;
+    color: var(--azul-profundo);
+}
+
+/* ---------- CONTACTO ---------- */
+.seccion-contacto {
+    background: linear-gradient(170deg, var(--azul-profundo) 0%, #0E3241 100%);
+    text-align: center;
+}
+
+.seccion-contacto h2,
+.seccion-contacto p {
+    color: var(--blanco);
+}
+
+.contacto-acciones {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+/* En el fondo oscuro, el botón secundario necesita otros colores */
+.seccion-contacto .boton-secundario {
+    border-color: var(--aguamarina);
+    color: var(--blanco);
+}
+
+.seccion-contacto .boton-secundario:hover {
+    background-color: rgba(91, 168, 181, 0.2);
+}
+
+/* ---------- PIE ---------- */
+.pie {
+    background-color: #0E3241;
+    color: #9DBCC7;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.92rem;
+}
+
+.pie p {
+    margin-bottom: 0.3rem;
+}
+
+.pie-nota {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* ---------- ADAPTACIÓN A CELULARES ----------
+   @media = "si la pantalla mide 720px o menos, aplicá estas reglas"
+   La mayoría de las visitas van a llegar desde el celular.      */
+@media (max-width: 720px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero {
+        padding: 4rem 0 3.5rem;
+    }
+
+    .pilares {
+        grid-template-columns: 1fr;  /* las 3 tarjetas pasan a 1 columna */
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+}
+
+/* ==========================================================
+   AGREGADOS DE LA ETAPA 2 — sitio multipágina
+   ========================================================== */
+
+/* ---------- ENLACE ACTIVO DEL MENÚ ----------
+   La clase .activo marca en qué página está el visitante.
+   "El .menu a.activo" se lee: "dentro de .menu, los <a>
+   que ADEMÁS tengan la clase activo".                    */
+.menu a.activo {
+    color: var(--aguamarina);
+    border-bottom: 2px solid var(--aguamarina);
+    padding-bottom: 2px;
+}
+
+/* Caso especial: cuando el activo es el botón de Contacto,
+   no queremos subrayado sino el botón en color acento.    */
+.menu a.boton-menu.activo {
+    background-color: var(--aguamarina);
+    border-bottom: none;
+    padding-bottom: 0.55rem; /* restaura el padding del botón */
+}
+
+/* ---------- HERO INTERIOR ----------
+   Las páginas interiores usan un hero más bajo:
+   presenta el tema sin ocupar toda la pantalla.
+   Nota: el HTML usa class="hero hero-interior", o sea,
+   hereda todo lo de .hero y esta regla solo AJUSTA.      */
+.hero-interior {
+    padding: 3.5rem 0 3rem;
+    text-align: left;
+}
+
+.hero-interior h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0;
+}
+
+/* ---------- ENLACES "LEER MÁS" ---------- */
+.enlace-mas a {
+    color: var(--azul-profundo);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid var(--ambar);
+}
+
+.enlace-mas a:hover {
+    color: var(--ambar);
+}
+
+/* ---------- ACCIONES ALINEADAS A LA IZQUIERDA ----------
+   .contacto-acciones centra los botones (para las secciones
+   oscuras). En páginas de texto los queremos a la izquierda. */
+.acciones-izquierda {
+    justify-content: flex-start;
+    margin-bottom: 2.5rem;
+}
