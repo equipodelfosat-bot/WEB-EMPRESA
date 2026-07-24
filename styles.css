@@ -442,27 +442,79 @@ blockquote cite {
     margin-top: 1.2rem;
     margin-bottom: 0;
 }
+
 /* ==========================================================
-   CORRECCIÓN — legibilidad del botón "Contacto" del menú
-   Estas reglas son MÁS ESPECÍFICAS que ".menu a", así que
-   ganan y el color del texto se aplica como corresponde.
+   PASO 1 — HERO CON IMAGEN DE FONDO
    ========================================================== */
 
-/* Estado normal: fondo azul oscuro, texto blanco */
-.menu a.boton-menu {
-    background-color: var(--azul-profundo);
-    color: var(--blanco);
+/* La propiedad background-image acepta VARIAS capas separadas
+   por comas. La primera de la lista queda ARRIBA de todo.
+   Acá: primero el velo de color, debajo la foto.             */
+.hero-inicio {
+    background-image:
+        /* Capa 1: velo azul en degradado diagonal.
+           rgba() = rojo, verde, azul + opacidad (0 a 1).
+           Empieza casi opaco (0.94) donde va el texto y termina
+           casi transparente (0.35) para que se vean las manos. */
+        linear-gradient(
+            100deg,
+            rgba(14, 50, 65, 0.94) 0%,
+            rgba(22, 70, 91, 0.80) 50%,
+            rgba(22, 70, 91, 0.35) 100%
+        ),
+        /* Capa 2: la fotografía.
+           La ruta es relativa: "desde donde está styles.css,
+           entrá a la carpeta imagenes y buscá este archivo". */
+        url('imagenes/hero-manos.webp');
+
+    /* cover = la imagen se agranda hasta cubrir todo el bloque,
+       recortando lo que sobre. Sin esto, se repetiría en mosaico. */
+    background-size: cover;
+    background-position: center;
+
+    /* vh = "viewport height", el alto de la pantalla.
+       80vh = el hero ocupa el 80% del alto visible, sea cual sea
+       el dispositivo. Da sensación de portada, no de banner.    */
+    min-height: 80vh;
+
+    /* Estas tres líneas centran el contenido verticalmente
+       dentro de ese alto grande.                              */
+    display: flex;
+    align-items: center;
+
+    /* EL CAMBIO CLAVE: el texto deja de estar centrado.
+       La asimetría es lo que rompe la cara de plantilla.      */
+    text-align: left;
+    padding: 5rem 0;
 }
 
-/* Al pasar el mouse: cambia a ámbar con texto oscuro.
-   El cambio es bien visible y sigue siendo legible. */
-.menu a.boton-menu:hover {
-    background-color: var(--ambar);
-    color: var(--azul-profundo);
+/* Limita el ancho del texto para que no se estire sobre la foto.
+   Las líneas muy largas cansan la vista, y además queremos dejar
+   respirar el lado derecho de la imagen.                        */
+.hero-contenido {
+    max-width: 620px;
 }
 
-/* En la propia página de Contacto: aguamarina con texto oscuro */
-.menu a.boton-menu.activo {
-    background-color: var(--aguamarina);
-    color: var(--azul-profundo);
+/* El párrafo del hero venía centrado con "margin: 0 auto".
+   Acá lo alineamos a la izquierda como el resto del bloque. */
+.hero-inicio .hero-texto {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* En celulares el hero se achica y el velo se hace más parejo:
+   con la pantalla angosta, el texto pasa por encima de las manos
+   y necesita más contraste para leerse.                        */
+@media (max-width: 720px) {
+    .hero-inicio {
+        min-height: 68vh;
+        padding: 3.5rem 0;
+        background-image:
+            linear-gradient(
+                160deg,
+                rgba(14, 50, 65, 0.93) 0%,
+                rgba(22, 70, 91, 0.86) 100%
+            ),
+            url('imagenes/hero-manos.webp');
+    }
 }

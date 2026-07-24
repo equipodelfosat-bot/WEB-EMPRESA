@@ -28,17 +28,24 @@
         </div>
     </header>
 
-    <!-- ============ HERO ============ -->
-    <section class="hero">
+    <!-- ============ HERO CON IMAGEN ============
+         NOVEDAD: la clase "hero-inicio" se suma a "hero".
+         Hereda todo lo de .hero y le agrega la imagen de fondo.
+         Es el mismo patrón que usamos en "hero-interior".      -->
+    <section class="hero hero-inicio">
         <div class="contenedor">
-            <p class="eyebrow">Acompañamiento terapéutico</p>
-            <h1>La presencia de un otro,<br>con objetivo terapéutico.</h1>
-            <p class="hero-texto">
-                Formamos equipos de acompañantes idóneos, con supervisión permanente
-                y en comunicación constante con el equipo tratante y la familia,
-                para favorecer el progreso y la reinserción social del paciente.
-            </p>
-            <a href="contacto.html" class="boton boton-principal">Consultanos por un caso</a>
+            <!-- Este div nuevo limita el ancho del texto para que
+                 no se estire sobre toda la foto -->
+            <div class="hero-contenido">
+                <p class="eyebrow">Acompañamiento terapéutico</p>
+                <h1>La presencia de un otro,<br>con objetivo terapéutico.</h1>
+                <p class="hero-texto">
+                    Formamos equipos de acompañantes idóneos, con supervisión permanente
+                    y en comunicación constante con el equipo tratante y la familia,
+                    para favorecer el progreso y la reinserción social del paciente.
+                </p>
+                <a href="contacto.html" class="boton boton-principal">Consultanos por un caso</a>
+            </div>
         </div>
     </section>
 
