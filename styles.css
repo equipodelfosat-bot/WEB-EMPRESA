@@ -518,3 +518,27 @@ blockquote cite {
             url('imagenes/hero-manos.webp');
     }
 }
+
+/* ==========================================================
+   CORRECCIÓN — legibilidad del botón "Contacto" del menú
+   Estas reglas son MÁS ESPECÍFICAS que ".menu a", así que
+   ganan y el color del texto se aplica como corresponde.
+   ========================================================== */
+
+/* Estado normal: fondo azul oscuro, texto blanco */
+.menu a.boton-menu {
+    background-color: var(--azul-profundo);
+    color: var(--blanco);
+}
+
+/* Al pasar el mouse: ámbar con texto oscuro */
+.menu a.boton-menu:hover {
+    background-color: var(--ambar);
+    color: var(--azul-profundo);
+}
+
+/* En la propia página de Contacto: aguamarina con texto oscuro */
+.menu a.boton-menu.activo {
+    background-color: var(--aguamarina);
+    color: var(--azul-profundo);
+}
