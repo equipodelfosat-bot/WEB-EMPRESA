@@ -542,3 +542,272 @@ blockquote cite {
     background-color: var(--aguamarina);
     color: var(--azul-profundo);
 }
+
+/* ==========================================================
+   PASO 2 — BLOQUE ASIMÉTRICO (imagen + texto)
+   ========================================================== */
+
+/* Este bloque NO usa .contenedor: ocupa todo el ancho de la
+   pantalla. Grid lo parte en dos columnas iguales (1fr 1fr).
+   "fr" significa "fracción del espacio disponible".         */
+.bloque-doble {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    /* align-items: center alinea verticalmente las dos columnas.
+       Con "stretch" (el valor por defecto) la imagen se estira
+       para igualar el alto del texto, que es lo que queremos. */
+    align-items: stretch;
+}
+
+/* La columna de la imagen */
+.bloque-imagen {
+    /* Sin esto, una imagen alta desbordaría la celda de la grilla */
+    overflow: hidden;
+    min-height: 420px;
+}
+
+.bloque-imagen img {
+    width: 100%;
+    height: 100%;
+
+    /* object-fit: cover es el equivalente de background-size:cover
+       pero para etiquetas <img>. La foto llena el espacio recortando
+       lo que sobra, en vez de deformarse.                          */
+    object-fit: cover;
+
+    /* display:block elimina un espacio fantasma de unos píxeles
+       que los navegadores agregan debajo de las imágenes.        */
+    display: block;
+}
+
+/* La columna del texto */
+.bloque-texto {
+    display: flex;
+    align-items: center;
+    padding: 4rem 3rem;
+}
+
+/* Limita el ancho de la línea de texto dentro de su columna */
+.bloque-texto-interior {
+    max-width: 480px;
+}
+
+.bloque-texto-interior h2 {
+    margin-bottom: 1.2rem;
+}
+
+/* En celulares no hay lugar para dos columnas: pasan a una sola,
+   con la imagen arriba y el texto abajo.                       */
+@media (max-width: 860px) {
+    .bloque-doble {
+        grid-template-columns: 1fr;
+    }
+
+    .bloque-imagen {
+        min-height: 260px;
+        max-height: 320px;
+    }
+
+    .bloque-texto {
+        padding: 2.5rem 1.5rem;
+    }
+}
+
+/* ==========================================================
+   PASO 3 — GALERÍA DE VIDA EN COMUNIDAD
+   ========================================================== */
+
+.seccion-galeria {
+    background-color: var(--blanco);
+}
+
+/* El encabezado va angosto y a la izquierda, no centrado.
+   Otra pequeña asimetría que suma. */
+.galeria-encabezado {
+    max-width: 640px;
+    margin-bottom: 2.5rem;
+}
+
+/* auto-fit + minmax es la fórmula de grilla responsiva:
+   "hacé tantas columnas como entren, de mínimo 260px cada una".
+   No hace falta un @media: se reacomoda sola según el ancho.  */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+/* <figure> trae márgenes por defecto del navegador: los sacamos */
+.galeria-item {
+    margin: 0;
+}
+
+.galeria-item img {
+    width: 100%;
+
+    /* aspect-ratio fuerza a TODAS las fotos a la misma proporción,
+       aunque los archivos originales tengan formas distintas.
+       Sin esto, la galería quedaría despareja. 4/3 es un formato
+       clásico y equilibrado.                                    */
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+
+    /* Preparamos la transición para el efecto de hover */
+    transition: transform 0.4s ease;
+}
+
+/* Al pasar el mouse, la foto crece apenas.
+   scale(1.03) = 103% del tamaño original: suficiente para que
+   se perciba vida, sin que parezca un cartel publicitario.   */
+.galeria-item:hover img {
+    transform: scale(1.03);
+}
+
+/* overflow:hidden recorta el crecimiento de la imagen para que
+   no se desborde de sus esquinas redondeadas al agrandarse.  */
+.galeria-item {
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.galeria-item figcaption {
+    margin-top: 0.8rem;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 1.05rem;
+    color: var(--azul-profundo);
+}
+
+/* ==========================================================
+   PASO 4 — PILARES NUMERADOS, CITA Y VIDEO
+   ========================================================== */
+
+/* --- Introducción de sección, alineada a la izquierda --- */
+.intro-seccion {
+    max-width: 640px;
+    margin-bottom: 3rem;
+}
+
+/* --- Pilares con número grande --- */
+.pilares-num {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.pilar-num {
+    border-top: 2px solid var(--aguamarina);
+    padding-top: 1.4rem;
+}
+
+.pilar-numero {
+    display: block;
+    font-family: 'Lora', Georgia, serif;
+    font-size: 2.6rem;
+    line-height: 1;
+    color: var(--ambar);
+    margin-bottom: 0.6rem;
+}
+
+.pilar-num h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.pilar-num p {
+    margin-bottom: 0;
+    color: #46585F;
+}
+
+/* --- Banda con la cita de la ley --- */
+.banda-cita {
+    background-color: var(--azul-profundo);
+    padding: 5rem 0;
+}
+
+.cita-grande {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    color: var(--blanco);
+    text-align: center;
+}
+
+.cita-grande cite {
+    display: block;
+    margin-top: 1.6rem;
+    font-family: 'Source Sans 3', Arial, sans-serif;
+    font-style: normal;
+    font-size: 0.95rem;
+    color: var(--aguamarina);
+}
+
+/* --- Sección del video --- */
+.seccion-video {
+    background-color: var(--fondo-suave);
+}
+
+.video-encabezado {
+    max-width: 640px;
+    margin-bottom: 2rem;
+}
+
+/* El marco mantiene la proporción 16:9 de los videos.
+   El iframe de YouTube se adapta solo a este espacio. */
+.video-marco {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: var(--azul-profundo);
+}
+
+.video-marco iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-pendiente {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed var(--aguamarina);
+    border-radius: 10px;
+}
+
+.video-pendiente p {
+    color: var(--aguamarina);
+    margin: 0;
+    font-size: 1.05rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+@media (max-width: 720px) {
+    .cita-grande {
+        font-size: 1.2rem;
+    }
+
+    .banda-cita {
+        padding: 3.5rem 0;
+    }
+
+    .pilar-numero {
+        font-size: 2.2rem;
+    }
+}

@@ -49,54 +49,146 @@
         </div>
     </section>
 
-    <!-- ============ RESUMEN: QUIÉNES SOMOS ============
-         El inicio ahora es una "vidriera": presenta cada tema
-         brevemente y deriva a la página completa.            -->
+    <!-- ============ QUIÉNES SOMOS + PILARES NUMERADOS ============ -->
     <section class="seccion">
-        <div class="contenedor contenedor-angosto">
-            <h2>Quiénes somos</h2>
-            <p>
-                Equipo Delfos es un grupo de profesionales convocado por el interés de
-                contribuir con el tratamiento de pacientes que requieren de la presencia
-                física de un otro en lo cotidiano.
-            </p>
-            <div class="pilares">
-                <article class="pilar">
+        <div class="contenedor">
+            <div class="intro-seccion">
+                <h2>Quiénes somos</h2>
+                <p>
+                    Equipo Delfos es un grupo de profesionales convocado por el interés de
+                    contribuir con el tratamiento de pacientes que requieren de la presencia
+                    física de un otro en lo cotidiano.
+                </p>
+            </div>
+
+            <div class="pilares-num">
+                <article class="pilar-num">
+                    <span class="pilar-numero">01</span>
                     <h3>Supervisiones</h3>
                     <p>Cada acompañante trabaja con supervisión profesional continua sobre su caso.</p>
                 </article>
-                <article class="pilar">
+                <article class="pilar-num">
+                    <span class="pilar-numero">02</span>
                     <h3>Reuniones de equipo</h3>
                     <p>Encuentros mensuales para pensar estrategias conjuntas de intervención.</p>
                 </article>
-                <article class="pilar">
+                <article class="pilar-num">
+                    <span class="pilar-numero">03</span>
                     <h3>Contacto permanente</h3>
                     <p>Comunicación constante con el equipo tratante y con la familia del paciente.</p>
                 </article>
             </div>
+
             <p class="enlace-mas">
                 <a href="quienes-somos.html">Conocé más sobre nuestro modo de trabajo →</a>
             </p>
         </div>
     </section>
 
-    <!-- ============ RESUMEN: EL ACOMPAÑAMIENTO ============ -->
-    <section class="seccion seccion-destacada">
+    <!-- ============ BLOQUE ASIMÉTRICO: EL ACOMPAÑAMIENTO ============
+         Dos columnas: imagen a la izquierda, texto a la derecha.
+         La imagen SE SALE del contenedor y toca el borde de la
+         pantalla: ese detalle es el que rompe la cara de plantilla. -->
+    <section class="bloque-doble seccion-destacada">
+        <!-- Columna 1: la imagen -->
+        <div class="bloque-imagen">
+            <!-- El atributo alt describe la imagen para quien no
+                 puede verla (lectores de pantalla) y para Google.
+                 No es opcional: es accesibilidad básica.          -->
+            <img src="imagenes/conversacion-parque.webp"
+                 alt="Una acompañante conversando a la misma altura con una persona en un parque">
+        </div>
+
+        <!-- Columna 2: el texto -->
+        <div class="bloque-texto">
+            <div class="bloque-texto-interior">
+                <h2>¿Qué es el acompañamiento terapéutico?</h2>
+                <p>
+                    Una herramienta fundamental para el abordaje de tratamientos
+                    psicológico-psiquiátricos, neurológicos o fisiológicos: el acompañante
+                    enlaza los ámbitos de inserción del paciente, sus redes de contención
+                    y el equipo profesional a cargo del tratamiento.
+                </p>
+                <p>
+                    Es, además, un derecho reconocido por la Ley Nacional de Salud
+                    Mental N° 26.657.
+                </p>
+                <p class="enlace-mas">
+                    <a href="acompanamiento.html">Leé sobre el acompañamiento y su marco legal →</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CITA DE LA LEY, ANCHO COMPLETO ============ -->
+    <section class="banda-cita">
         <div class="contenedor contenedor-angosto">
-            <h2>¿Qué es el acompañamiento terapéutico?</h2>
-            <p>
-                Una herramienta fundamental para el abordaje de tratamientos
-                psicológico-psiquiátricos, neurológicos o fisiológicos: el acompañante
-                enlaza los ámbitos de inserción del paciente, sus redes de contención
-                y el equipo profesional a cargo del tratamiento.
-            </p>
-            <p>
-                Es, además, un derecho reconocido por la Ley Nacional de Salud
-                Mental N° 26.657.
-            </p>
-            <p class="enlace-mas">
-                <a href="acompanamiento.html">Leé sobre el acompañamiento y su marco legal →</a>
-            </p>
+            <blockquote class="cita-grande">
+                El proceso de atención debe realizarse preferentemente fuera del
+                ámbito de internación hospitalario. Se orientará al reforzamiento,
+                restitución o promoción de los lazos sociales.
+                <cite>— Ley Nacional de Salud Mental N° 26.657</cite>
+            </blockquote>
+        </div>
+    </section>
+
+    <!-- ============ VIDEO INSTITUCIONAL ============
+         ESPACIO RESERVADO. Cuando tengas el video en YouTube:
+         1. En YouTube, botón "Compartir" → "Insertar"
+         2. Copiá el código que empieza con <iframe...
+         3. Borrá el bloque "video-pendiente" de abajo
+         4. Pegá el <iframe> dentro de "video-marco"          -->
+    <section class="seccion seccion-video">
+        <div class="contenedor">
+            <div class="video-encabezado">
+                <h2>Conocé nuestro trabajo</h2>
+                <p>Dos minutos para entender qué es el acompañamiento terapéutico.</p>
+            </div>
+            <div class="video-marco">
+                <div class="video-pendiente">
+                    <p>Video institucional — próximamente</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ GALERÍA: VIDA EN COMUNIDAD ============
+         Traduce a imágenes el principio de la Ley 26.657:
+         el paciente pensado dentro de la comunidad.        -->
+    <section class="seccion seccion-galeria">
+        <div class="contenedor">
+            <div class="galeria-encabezado">
+                <h2>El objetivo es la vida en comunidad</h2>
+                <p>
+                    El acompañamiento no busca sostener al paciente aislado, sino
+                    devolverle su lugar entre otros: los vínculos, las actividades,
+                    la participación. Ese es el sentido terapéutico del trabajo.
+                </p>
+            </div>
+
+            <!-- Cada figura agrupa una imagen con su epígrafe.
+                 <figure> y <figcaption> son las etiquetas correctas
+                 para esto: le dicen al navegador y a Google que ese
+                 texto describe esa imagen en particular.          -->
+            <div class="galeria">
+                <figure class="galeria-item">
+                    <img src="imagenes/galeria-brindis.webp"
+                         alt="Un grupo de amigos brindando en una reunión al aire libre">
+                    <figcaption>Vínculos</figcaption>
+                </figure>
+
+                <figure class="galeria-item">
+                    <img src="imagenes/galeria-actividad.webp"
+                         alt="Dos mujeres conversando antes de una clase de actividad física">
+                    <figcaption>Actividades recreativas</figcaption>
+                </figure>
+
+                <figure class="galeria-item">
+                    <img src="imagenes/galeria-deporte.webp"
+                         alt="Jugadores entrenando fútbol en una cancha al aire libre">
+                    <figcaption>Participación comunitaria</figcaption>
+                </figure>
+            </div>
         </div>
     </section>
 
