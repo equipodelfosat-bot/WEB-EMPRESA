@@ -811,3 +811,97 @@ blockquote cite {
         font-size: 2.2rem;
     }
 }
+
+/* ==========================================================
+   PASO 5 — UNIFICACIÓN DE LAS PÁGINAS INTERIORES
+   ========================================================== */
+
+/* --- Heros interiores con imagen de fondo ---
+   Mismo patrón que el hero del inicio, pero más bajos:
+   presentan el tema sin competir con la portada.        */
+.hero-interior[class*="hero-"] {
+    background-size: cover;
+    background-position: center;
+    min-height: 44vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-quienes {
+    background-image:
+        linear-gradient(100deg, rgba(14,50,65,0.93) 0%, rgba(22,70,91,0.72) 100%),
+        url('imagenes/hero-quienes.webp');
+}
+
+.hero-acompanamiento {
+    background-image:
+        linear-gradient(100deg, rgba(14,50,65,0.93) 0%, rgba(22,70,91,0.68) 100%),
+        url('imagenes/hero-acompanamiento.webp');
+}
+
+.hero-sumate {
+    background-image:
+        linear-gradient(100deg, rgba(14,50,65,0.94) 0%, rgba(22,70,91,0.70) 100%),
+        url('imagenes/hero-sumate.webp');
+}
+
+.hero-contacto {
+    background-image:
+        linear-gradient(100deg, rgba(14,50,65,0.93) 0%, rgba(22,70,91,0.70) 100%),
+        url('imagenes/hero-contacto.webp');
+}
+
+/* --- Contenedor de lectura ---
+   Reemplaza a contenedor-angosto en las páginas interiores.
+   Mismo ancho cómodo de lectura, pero alineado a la izquierda
+   en vez de centrado: es la asimetría que unifica con el inicio. */
+.contenedor-lectura {
+    max-width: 780px;
+    margin-left: 0;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* En pantallas grandes el contenido no queda pegado al borde:
+   respeta el mismo margen izquierdo que el contenedor general. */
+@media (min-width: 1140px) {
+    .contenedor-lectura {
+        margin-left: calc((100vw - 1080px) / 2);
+        padding-left: 0;
+    }
+}
+
+/* --- Cita destacada en páginas interiores --- */
+.cita-destacada {
+    border-left: 4px solid var(--ambar);
+    background-color: var(--fondo-suave);
+    padding: 1.8rem 2rem;
+    margin: 2rem 0;
+    font-family: 'Lora', Georgia, serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    line-height: 1.55;
+    color: var(--azul-profundo);
+    border-radius: 0 8px 8px 0;
+}
+
+.cita-destacada cite {
+    display: block;
+    margin-top: 1rem;
+    font-family: 'Source Sans 3', Arial, sans-serif;
+    font-style: normal;
+    font-size: 0.9rem;
+    color: #46585F;
+}
+
+/* --- Ajustes de celular --- */
+@media (max-width: 720px) {
+    .hero-interior[class*="hero-"] {
+        min-height: 34vh;
+    }
+
+    .cita-destacada {
+        font-size: 1.05rem;
+        padding: 1.4rem 1.4rem;
+    }
+}
